@@ -8,11 +8,9 @@ export default function Home() {
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text style={{ fontSize: 32, fontWeight: "bold" }}>Home</Text>
 
-      {/* <Link href="/product/5" asChild>
-        <Button title="Ver produto" />
-      </Link> */}
-
-      <Button title="Configurações" />
+      <Link href="/product/11" asChild>
+        <Button title="Configurações" />
+      </Link>
     </View>
   )
 }

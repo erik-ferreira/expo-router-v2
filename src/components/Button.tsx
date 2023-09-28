@@ -1,24 +1,29 @@
-import { TouchableOpacity, Text } from "react-native"
+import { forwardRef } from "react"
+import { TouchableOpacity, TouchableOpacityProps, Text } from "react-native"
 
-interface ButtonProps {
+interface ButtonProps extends TouchableOpacityProps {
   title: string
 }
 
-export function Button({ title }: ButtonProps) {
-  return (
-    <TouchableOpacity
-      style={{
-        width: 200,
-        backgroundColor: "#8257e5",
-        padding: 16,
-        alignItems: "center",
-        justifyContent: "center",
-        borderRadius: 8,
-      }}
-    >
-      <Text style={{ fontSize: 17, fontWeight: "bold", color: "white" }}>
-        {title}
-      </Text>
-    </TouchableOpacity>
-  )
-}
+export const Button = forwardRef<TouchableOpacity, ButtonProps>(
+  ({ title, ...rest }, ref) => {
+    return (
+      <TouchableOpacity
+        ref={ref}
+        style={{
+          width: 200,
+          backgroundColor: "#8257e5",
+          padding: 16,
+          alignItems: "center",
+          justifyContent: "center",
+          borderRadius: 8,
+        }}
+        {...rest}
+      >
+        <Text style={{ fontSize: 17, fontWeight: "bold", color: "white" }}>
+          {title}
+        </Text>
+      </TouchableOpacity>
+    )
+  }
+)
